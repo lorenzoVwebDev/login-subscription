@@ -12,3 +12,8 @@ body {
   display: grid;
   place-content: center;
 }
+
+
+.main {
+  cursor: pointer;
+}
