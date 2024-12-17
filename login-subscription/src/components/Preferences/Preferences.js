@@ -2,8 +2,10 @@ import React from 'react';
 
 function Preferences() {
   return (
-    <h2>Preferences</h2>
+    <div className="wrapper">
+      <h1>Preferences</h1>
+    </div>
   )
-}
+} 
 
 export default Preferences;

@@ -1,34 +1,35 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { loginUser } from '../services/token.js'
+import { getToken } from '../services/token';
 
-function Login({setToken}) {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
-  console.log(username)
-  console.log(password)
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const token = loginUser({
+function Login({ setToken }) {
+  const [ username, setUsername ] = useState()
+  const [ password, setPassword ] = useState()
+  const handleSubmit = (e) => {
+
+
+    const token = getToken({
       username,
       password
     })
+
     setToken(token)
+
+    //e.preventDefault();
   }
-  
   return (
-    <div className="login-wrapper">
+    <div className="wrapper">
       <form onSubmit={handleSubmit}>
         <label>
           <p>Username</p>
-          <input type="text" onChange={e => setUsername(e.target.value)}/>
+          <input type="text" onChange={(e) => {setUsername(e.target.value)}}/>
         </label>
         <label>
           <p>Password</p>
-          <input type="password" onChange={e => setPassword(e.target.value)}/>
+          <input type="password" onChange={(e) => {setPassword(e.target.value)}}/>
         </label>
         <div>
-          <button type="submit">Submit</button>
+        <button type="submit">Login</button>
         </div>
       </form>
     </div>
@@ -38,5 +39,5 @@ function Login({setToken}) {
 export default Login;
 
 Login.propTypes = {
-  setToken: PropTypes.func
+  setToken: PropTypes.func.isRequired
 }

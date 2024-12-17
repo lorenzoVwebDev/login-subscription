@@ -1,21 +1,19 @@
-export async function loginUser(credentials) {
-  console.log(credentials)
-  const response =  await fetch('http://localhost:3001/login', {
+export async function setToken(credentials) {
+  const token = await fetch('http://localhost:3001/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(credentials)
-  }).then(response => {return response.json()})
-}
+    body: JSON.stringify(credentials)   
+  }).then((response) => {
+    return response.json()
+  })
 
-export function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-  console.log('hello')
+ sessionStorage.setItem('token', JSON.stringify(token))
 }
 
 export function getToken() {
-  const tokenString = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  return userToken.token
+  const userToken  = JSON.parse(sessionStorage.getItem('token')) || '';
+  return userToken?.token;
+
 }

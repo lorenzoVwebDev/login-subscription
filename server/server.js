@@ -6,8 +6,6 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors())
 
-
-
 app.use(express.urlencoded({extended: false}));
 
 app.use(express.json()) 
@@ -16,7 +14,7 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.use('/login', (req, res) => {
   res.send({
-    token: 'test123'
+    token: '123test'
   })
 })
 
