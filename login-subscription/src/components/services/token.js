@@ -15,4 +15,5 @@ export async function setToken(credentials) {
 export function getToken() {
   const userToken  = JSON.parse(sessionStorage.getItem('token')) || '';
   return userToken?.token;
+
 }
