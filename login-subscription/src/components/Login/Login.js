@@ -6,7 +6,7 @@ function Login({ setToken }) {
   const [ username, setUsername ] = useState()
   const [ password, setPassword ] = useState()
   const handleSubmit = (e) => {
-    e.preventDefault();
+
 
     const token = getToken({
       username,
@@ -14,6 +14,8 @@ function Login({ setToken }) {
     })
 
     setToken(token)
+
+    //e.preventDefault();
   }
   return (
     <div className="wrapper">

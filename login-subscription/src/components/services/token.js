@@ -1,4 +1,4 @@
-export async function getToken(credentials, setToken) {
+export async function setToken(credentials) {
   const token = await fetch('http://localhost:3001/login', {
     method: 'POST',
     headers: {
@@ -9,5 +9,10 @@ export async function getToken(credentials, setToken) {
     return response.json()
   })
 
-/*   setToken(token) */
+ sessionStorage.setItem('token', JSON.stringify(token))
+}
+
+export function getToken() {
+  const userToken  = JSON.parse(sessionStorage.getItem('token')) || '';
+  return userToken?.token;
 }
