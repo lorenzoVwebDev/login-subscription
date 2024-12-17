@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-function Login() {
+function Login({ setToken}) {
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState()
   return (
     <div className="login-wrapper">
-      <form>
+      <form action="">
         <label>
           <p>Username</p>
-          <input type="text"/>
+          <input type="text" onChange={e => setUsername(e)}/>
         </label>
         <label>
           <p>Password</p>
-          <input type="password" />
+          <input type="password" onChange={e => setPassword(e)}/>
         </label>
         <div>
           <button type="submit">Submit</button>
@@ -21,3 +24,7 @@ function Login() {
 }
 
 export default Login;
+
+Login.propTypes = {
+  setToken: PropTypes.func.isRequired
+}
