@@ -1,20 +1,23 @@
 import React, { useState} from 'react';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import './App.css';
-import Dashboard from './components/Dashboard/Dashboard.js';
-import Preferences from './components/Preferences/Preferences.js';
-import Login from './components/Login/Login.js';
+import Dashboard from '../Dashboard/Dashboard.js';
+import Preferences from '../Preferences/Preferences.js';
+import Login from '../Login/Login.js';
 
 function App() {
   const [token, setToken] = useState();
   if (!token) {
     return (
-      <Login token={setToken}/>
+      <Login setToken={setToken}/>
     )
   }
   return (
     <div>
+      <h1>Application</h1>
       <BrowserRouter>
+        <Link to="dashboard"><li>Dashboard</li></Link>
+        <Link to="preferences"><li>Preferences</li></Link>
         <Routes>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/preferences" element={<Preferences/>}/>
