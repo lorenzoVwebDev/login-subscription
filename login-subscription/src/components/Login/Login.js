@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { getToken } from '../services/token';
+import { loginUser } from '../services/loginUser.js'
 
 function Login({ setToken }) {
   const [ username, setUsername ] = useState()
   const [ password, setPassword ] = useState()
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-
-    const token = getToken({
+    console.log({
+      username,
+      password
+    })
+    const token = await loginUser({
       username,
       password
     })
 
+    console.log(token)
     setToken(token)
 
-    //e.preventDefault();
+
   }
   return (
     <div className="wrapper">

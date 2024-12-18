@@ -4,10 +4,10 @@ import './App.css';
 import Dashboard from '../Dashboard/Dashboard.js';
 import Preferences from '../Preferences/Preferences.js';
 import Login from '../Login/Login.js';
-import { getToken, setToken } from '../services/token.js';
+import { useToken } from '../services/token.js';
 
 function App() {
-  const token = getToken()
+  const { setToken, token } = useToken()
   if (!token) {
     return (
       <Login setToken={setToken}/>

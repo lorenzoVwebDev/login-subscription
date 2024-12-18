@@ -1,19 +1,25 @@
-export async function setToken(credentials) {
-  const token = await fetch('http://localhost:3001/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(credentials)   
-  }).then((response) => {
-    return response.json()
-  })
+import { useState } from 'react';
 
- sessionStorage.setItem('token', JSON.stringify(token))
+export function useToken() {
+  const getToken = () => {
+    const userToken  = JSON.parse(sessionStorage.getItem('token')) || '';
+    return userToken?.token;
+  }
+
+  const [ token, setToken ] = useState(getToken());
+
+  const saveToken = userToken => {
+    console.log(userToken);
+    sessionStorage.setItem('token', JSON.stringify(userToken));
+    setToken(userToken.token);
+  }
+
+  return {
+    setToken: saveToken,
+    token
+  }
 }
 
-export function getToken() {
-  const userToken  = JSON.parse(sessionStorage.getItem('token')) || '';
-  return userToken?.token;
 
-}
+
+
