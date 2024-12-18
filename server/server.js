@@ -12,10 +12,6 @@ app.use(express.json())
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 
-app.use('/login', (req, res) => {
-  res.send({
-    token: '123test'
-  })
-})
+app.use('/login', require(path.join(__dirname, 'routes', 'api', 'login.js')))
 
 app.listen(PORT, () => { console.log(`Server running on port ${PORT}`)}); 

@@ -20,7 +20,7 @@ function Login({ setToken }) {
     console.log(token)
     setToken(token)
 
-
+    
   }
   return (
     <div className="wrapper">
