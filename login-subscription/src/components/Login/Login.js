@@ -17,6 +17,7 @@ function Login({ setToken, setAuthok, authok }) {
     if (!response?.token) {
       setAuthok(false)
     } else {
+      setAuthok(true)
       setToken(response.token)
     }
   }
