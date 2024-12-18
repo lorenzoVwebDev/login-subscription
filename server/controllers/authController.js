@@ -9,7 +9,7 @@ const handleLogin = async (req, res) => {
   if (!username || !pwr) return res.status(400).send({"message": "Username or password are required"})
   const userCredentials = userDB.users.find(credentials => credentials.username === username);
   console.log(userCredentials)
-  if (!userCredentials.username) return res.status(401).send({"message": "Unauthorized"});
+  if (!userCredentials?.username) return res.status(401).send({"message": "Username or password are wrong!"});
   const hashedPassword = userCredentials.password;
 
   if (!hashedPassword) return res.status(500).send({"message": "Sorry, an error has occured, we are going to resolve it as soon as possible!"})

@@ -8,9 +8,14 @@ import { useToken } from '../services/token.js';
 
 function App() {
   const { setToken, token } = useToken()
+  const [ authok, setAuthok] = useState(true)
   if (!token) {
     return (
-      <Login setToken={setToken}/>
+      <Login 
+        setToken={setToken}
+        setAuthok={setAuthok}
+        authok={authok}
+      />
     )
   }
   return (
