@@ -1,5 +1,5 @@
 export function loginUser(credentials) {
-  const token = fetch('http://localhost:3001/login', {
+  const token = fetch('https://backend.lorenzo-viganego.com/dummylogin', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
