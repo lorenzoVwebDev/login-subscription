@@ -23,37 +23,34 @@ function Login({ setToken, setAuthok, authok }) {
   }
   if (authok) {
     return (
-      <div className="wrapper">
-        <form onSubmit={handleSubmit}>
+      <div className="login-wrapper">
+        <h4>Welcome! I'm glad to present<br/><span>my login project!</span></h4>
+        <form onSubmit={handleSubmit} className="login-form">
           <label>
-            <p>Username</p>
-            <input type="text" onChange={(e) => {setUsername(e.target.value)}}/>
+            <input type="text" placeholder="Username"onChange={(e) => {setUsername(e.target.value)}}/>
           </label>
           <label>
-            <p>Password</p>
-            <input type="password" onChange={(e) => {setPassword(e.target.value)}}/>
+            <input type="password" placeholder="Password" onChange={(e) => {setPassword(e.target.value)}}/>
           </label>
           <div>
-          <button type="submit">Login</button>
+          <button type="submit" className="login-button">Login</button>
           </div>
         </form>
       </div>
     )
   } else {
     return (
-      <div className="wrapper">
-        <h1>Username or password are wrong!</h1>
-        <form onSubmit={handleSubmit}>
+      <div className="login-wrapper">
+        <h4>Username or password are wrong!</h4>
+        <form onSubmit={handleSubmit} className="login-form">
           <label>
-            <p>Username</p>
-            <input type="text" onChange={(e) => {setUsername(e.target.value)}}/>
+            <input type="text" placeholder=" Username" onChange={(e) => {setUsername(e.target.value)}}/>
           </label>
           <label>
-            <p>Password</p>
-            <input type="password" onChange={(e) => {setPassword(e.target.value)}}/>
+            <input type="password" placeholder=" Password"onChange={(e) => {setPassword(e.target.value)}}/>
           </label>
           <div>
-          <button type="submit">Login</button>
+          <button type="submit" className="login-button">Login</button>
           </div>
         </form>
       </div>

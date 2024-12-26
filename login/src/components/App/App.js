@@ -5,15 +5,16 @@ import Dashboard from '../Dashboard/Dashboard.js';
 import Preferences from '../Preferences/Preferences.js';
 import Login from '../Login/Login.js';
 import { useToken } from '../services/token.js';
+import loginImage from '../../images/loginImage.png'
 
 function App() {
   const { setToken, token } = useToken()
   const [ authok, setAuthok] = useState(true)
   if (!token) {
     return (
-      <div>
+      <div className="main-container">
       <div className="login-img-container">
-        <img className="login-img"src="../../images/loginimage.png" alt="" />
+        <img className="login-img"src="https://i.ibb.co/88LGhZh/login-Image.png" alt="" />
       </div>
       <Login 
         setToken={setToken}
