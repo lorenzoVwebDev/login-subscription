@@ -11,11 +11,16 @@ function App() {
   const [ authok, setAuthok] = useState(true)
   if (!token) {
     return (
+      <div>
+      <div className="login-img-container">
+        <img className="login-img"src="../../images/loginimage.png" alt="" />
+      </div>
       <Login 
         setToken={setToken}
         setAuthok={setAuthok}
         authok={authok}
       />
+    </div>
     )
   }
   return (
