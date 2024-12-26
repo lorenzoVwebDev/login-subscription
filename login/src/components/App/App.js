@@ -12,6 +12,8 @@ function App() {
   const [ authok, setAuthok] = useState(true)
   if (!token) {
     return (
+      <>
+      <header></header>
       <div className="main-container">
       <div className="login-img-container">
         <img className="login-img"src="https://i.ibb.co/88LGhZh/login-Image.png" alt="" />
@@ -22,10 +24,16 @@ function App() {
         authok={authok}
       />
     </div>
+    </>
     )
   }
   return (
-    <div>
+    <>
+    <header>
+    git Repository 👉🏻 <a href="https://github.com/lorenzoVwebDev/Animal-Cards">Login page</a>
+    </header>
+    <div className="application-wrapper">
+      <div className="applications-wrapper">
       <h1>Application</h1>
       <BrowserRouter>
         <Link to="dashboard"><li>Dashboard</li></Link>
@@ -35,7 +43,9 @@ function App() {
           <Route path="/preferences" element={<Preferences/>}/>
         </Routes>
       </BrowserRouter>
+      </div>
     </div>
+    </>
   )
 }
 

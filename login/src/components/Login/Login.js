@@ -27,10 +27,10 @@ function Login({ setToken, setAuthok, authok }) {
         <h4>Welcome! I'm glad to present<br/><span>my login project!</span></h4>
         <form onSubmit={handleSubmit} className="login-form">
           <label>
-            <input type="text" placeholder="Username"onChange={(e) => {setUsername(e.target.value)}}/>
+            <input type="text" placeholder="Username" minLength="4" maxLength="25" pattern="[A-Za-z]+" required title="User id must contain eight or more characters." onChange={(e) => {setUsername(e.target.value)}}/>
           </label>
           <label>
-            <input type="password" placeholder="Password" onChange={(e) => {setPassword(e.target.value)}}/>
+            <input type="password" placeholder="Password" pattern="(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}" required title="Password must contain at least one number, one uppercase and lowercase letter, and at least 8 total characters." onChange={(e) => {setPassword(e.target.value)}}/>
           </label>
           <div>
           <button type="submit" className="login-button">Login</button>
@@ -44,7 +44,7 @@ function Login({ setToken, setAuthok, authok }) {
         <h4>Username or password are wrong!</h4>
         <form onSubmit={handleSubmit} className="login-form">
           <label>
-            <input type="text" placeholder=" Username" onChange={(e) => {setUsername(e.target.value)}}/>
+            <input type="text" placeholder="Username" minLength="4" maxLength="25" pattern="[A-Za-z]+" required onChange={(e) => {setUsername(e.target.value)}}/>
           </label>
           <label>
             <input type="password" placeholder=" Password"onChange={(e) => {setPassword(e.target.value)}}/>

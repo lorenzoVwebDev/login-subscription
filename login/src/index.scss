@@ -28,9 +28,11 @@
 $display-flex: flex;
 $white-font: rgb(255, 255, 255);
 $blue-fb: rgb(8, 102, 255);
+$orange: #FF8C00;
 :root {
   height: 100%;
 }
+
 body {
   margin: 0;
   @include poppin-regular();
@@ -40,7 +42,16 @@ body {
 #root {
   height: 100%;
 }
-
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7vh;
+  background-color: $orange; 
+  margin-bottom: 1vh;
+  border-bottom-style: solid;
+  border-color:hsla(0, 0%, 20%, 0.2);
+}
 .main-container {
   display: flex;
   align-items: center;
@@ -116,6 +127,36 @@ body {
   transform: scale(1.1);
 }
 
+.application-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+}
+.application-wrapper::before {
+  content: url('https://i.ibb.co/88LGhZh/login-Image.png');
+  filter: blur(8px);
+  object-fit: cover;
+}
+
+.applications-wrapper {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  & h1 {
+    text-align: center;
+  }
+  & h3 {
+    text-align: center,
+  }
+  & li {
+    @include poppin-bold();
+    text-align: center;
+  }
+}
 
 
 
