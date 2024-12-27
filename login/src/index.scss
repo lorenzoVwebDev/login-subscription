@@ -42,7 +42,7 @@ body {
 #root {
   height: 100%;
 }
-header {
+.header-1 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,6 +52,16 @@ header {
   border-bottom-style: solid;
   border-color:hsla(0, 0%, 20%, 0.2);
 }
+.header-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7vh;
+  background-color: $orange; 
+  border-bottom-style: solid;
+  border-color:hsla(0, 0%, 20%, 0.2);
+}
+
 .main-container {
   display: flex;
   align-items: center;
@@ -62,10 +72,13 @@ header {
 }
 
 .login-img-container {
-  display: $display-flex;
+  position:relative;
+/*   display: $display-flex; */
   width: 65vw;
   height: 100%;
 }
+
+
 
 .login-img {
   height: 100%;
@@ -98,6 +111,16 @@ header {
   & input::placeholder {
     color: hsla(0, 0%, 20%, 0.2);
   }
+
+  & li {
+    @include poppin-thin();
+    font-size: 0.97em;
+  }
+
+  & ul span {
+    color: #E4FC5B;    ;
+    font-weight: bold;
+  }
 }
 
 
@@ -121,6 +144,7 @@ header {
   border-radius: 25px;
   transition: all 0.3s;
   box-shadow: 2px 2px 5px gray;
+  cursor: pointer;
 }
 
 .login-form .login-button:hover {
@@ -150,7 +174,10 @@ header {
     text-align: center;
   }
   & h3 {
-    text-align: center,
+    text-align: center;
+  }
+  & h2 {
+    text-align: center;
   }
   & li {
     @include poppin-bold();
